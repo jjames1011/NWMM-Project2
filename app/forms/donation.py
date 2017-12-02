@@ -29,10 +29,12 @@ class Unique(object):
 
 class Donate(Form):
 
+    DROP_SITES = [('Portland (Southeast) - Adventist Medical Center','Portland (Southeast) - Adventist Medical Center'), ('Portland (North) - Legacy Emanuel Medical Center','Portland (North) - Legacy Emanuel Medical Center'), ('Portland (Southwest) - OHSU Family Medicine at Gabriel Park', 'Portland (Southwest) - OHSU Family Medicine at Gabriel Park')]
+
     ''' Donate milk form '''
 
-    location = TextField(validators=[Required()],
-                      description='Location')
+    location = SelectField('Drop Site', validators=[Required()],
+                      choices=DROP_SITES, description="test")
     date = DateField(validators=[Required()],
                       description='Date', format='%m/%d/%Y')
     amount= TextField(validators=[Required()],
