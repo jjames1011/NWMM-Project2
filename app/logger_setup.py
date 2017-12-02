@@ -56,20 +56,20 @@ def add_fields(_, level, event_dict):
     return event_dict
 
 # Add a handler to write log messages to a file
-if app.config.get('LOG_FILENAME'):
-   file_handler = RotatingFileHandler(filename=app.config['LOG_FILENAME'],
-                                       maxBytes=app.config['LOG_MAXBYTES'],
-                                       backupCount=app.config['LOG_BACKUPS'],
-                                       mode='a',
-                                       encoding='utf-8')
-    file_handler.setLevel(logging.DEBUG)
-    app.logger.addHandler(file_handler)
-
-# Wrap the application logger with structlog to format the output
-logger = wrap_logger(
-    app.logger,
-    processors=[
-        add_fields,
-        JSONRenderer(indent=None)
-    ]
-)
+# if app.config.get('LOG_FILENAME'):
+#    file_handler = RotatingFileHandler(filename=app.config['LOG_FILENAME'],
+#                                        maxBytes=app.config['LOG_MAXBYTES'],
+#                                        backupCount=app.config['LOG_BACKUPS'],
+#                                        mode='a',
+#                                        encoding='utf-8')
+#     file_handler.setLevel(logging.DEBUG)
+#     app.logger.addHandler(file_handler)
+#
+# # Wrap the application logger with structlog to format the output
+# logger = wrap_logger(
+#     app.logger,
+#     processors=[
+#         add_fields,
+#         JSONRenderer(indent=None)
+#     ]
+# )
