@@ -1,5 +1,8 @@
+import datetime
 from sqlalchemy.ext.hybrid import hybrid_property
 from flask.ext.login import UserMixin
+from sqlalchemy import DateTime
+import datetime
 
 from app import db, bcrypt
 
@@ -41,4 +44,11 @@ class Donation(db.Model):
 
     user_email = db.Column(db.String, db.ForeignKey('users.email'), primary_key=True)
     amount = db.Column(db.Integer)
+    date = db.Column(DateTime, default=datetime.datetime.utcnow)
     location = db.Column(db.String)
+
+    def __init__(self,user_email,amount,date,location):
+        self.user_email = user_email
+        self.amount = amount
+        self.date = date
+        self.location = location
