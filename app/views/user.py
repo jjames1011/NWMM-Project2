@@ -21,7 +21,6 @@ def signup():
         user = models.User(
             first_name=form.first_name.data,
             last_name=form.last_name.data,
-            phone=form.phone.data,
             email=form.email.data,
             confirmation=False,
             password=form.password.data,
@@ -39,9 +38,11 @@ def signup():
         html = render_template('email/confirm.html',
                                confirm_url=confirmUrl)
         # Send the email to user
-        email.send(user.email, subject, html)
+        # Lets implement this later!!!!:
+        # email.send(user.email, subject, html)
         # Send back to the home page
-        flash('Check your emails to confirm your email address.', 'positive')
+        # flash('Check your emails to confirm your email address.', 'positive')
+        login_user(user)
         return redirect(url_for('index'))
     return render_template('user/signup.html', form=form, title='Sign up')
 
