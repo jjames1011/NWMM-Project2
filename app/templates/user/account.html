@@ -1,11 +1,34 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block head %} {{ super() }} {% endblock %} {% block content %}
 
-{% block head %}
-    {{ super() }}
-{% endblock %}
+<h1 class="ui header">Hi {{ current_user.full_name }}!</h1>
+<table class='ui table'>
+  <thead>
+    <tr>
+      <td>
+        <div class='ui ribbon label'>Donations</div>
+      </td>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Amount(oz)</th>
+    </tr>
+  </thead>
+  <tr>
 
-{% block content %}
+    <td>1/2/2017</td>
+    <td>SE Portland</td>
+    <td>10</td>
+  </tr>
+  <tr>
 
-    <h1 class="ui header">Hi {{ current_user.full_name }}!</h1>
+    <td>1/2/2017</td>
+    <td>SE Portland</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>1/2/2017</td>
+    <td>SE Portland</td>
+    <td>10</td>
+  </tr>
+</table>
 
 {% endblock %}

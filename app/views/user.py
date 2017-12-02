@@ -43,7 +43,7 @@ def signup():
         # Send back to the home page
         # flash('Check your emails to confirm your email address.', 'positive')
         login_user(user)
-        return redirect(url_for('index'))
+        return redirect(url_for('donate'))
     return render_template('user/signup.html', form=form, title='Sign up')
 
 
@@ -78,7 +78,7 @@ def signin():
                 login_user(user)
                 # Send back to the home page
                 flash('Succesfully signed in.', 'positive')
-                return redirect(url_for('index'))
+                return redirect(url_for('donate'))
             else:
                 flash('The password you have entered is wrong.', 'negative')
                 return redirect(url_for('userbp.signin'))
@@ -92,7 +92,7 @@ def signin():
 def signout():
     logout_user()
     flash('Succesfully signed out.', 'positive')
-    return redirect(url_for('index'))
+    return redirect(url_for('userbp.signin'))
 
 
 @userbp.route('/account')

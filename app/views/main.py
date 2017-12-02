@@ -8,7 +8,7 @@ import random
 @app.route('/')
 @app.route('/index')
 def index():
-    return redirect('/donate')
+    return redirect('/user/signup')
 
 
 @app.route('/map')

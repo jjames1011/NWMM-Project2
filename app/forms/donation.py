@@ -36,6 +36,6 @@ class Donate(Form):
     date = TextField(validators=[Required()],
                       description='Date')
     amount= TextField(validators=[Required()],
-                      description='Amount')
+                      description='Amount (oz)')
     user_email= HiddenField(validators=[Required()],
                       description='UserEmail')
