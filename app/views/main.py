@@ -1,5 +1,7 @@
 from flask import render_template, jsonify
 from app import app
+from app.forms import donation as donation_forms
+from app import app, models, db
 import random
 
 
@@ -25,3 +27,21 @@ def map_refresh():
 @app.route('/contact')
 def contact():
     return render_template('contact.html', title='Contact')
+
+@app.route('/donate', methods=['GET','POST'])
+def donate():
+    form = donation_forms.Donate()
+
+    if form.validate_on_submit():
+        # Create a donation
+        donation = models.Donation(
+            user_email=form.user_email.data,
+            location=form.location.data,
+            # date=form.date,
+            amount=form.amount.data,
+        )
+        # Insert the donation in the database
+        db.session.add(donation)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('donation/donate.html', form=form, title='Donate')
