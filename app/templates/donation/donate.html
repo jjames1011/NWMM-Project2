@@ -1,17 +1,10 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block content %}
 
-{% block content %}
-
-	<div class="ui form-donation center raised very padded text container segment">
-		<form class="ui form" action="/donate" method="post">
-			<h4 class="ui dividing header">Donate</h4>
-	    	{{ m.render_field(form.date) }}
-	    	{{ m.render_field(form.user_email) }}
-	    	{{ m.render_field(form.location) }}
-	    	{{ m.render_field(form.amount) }}
-		  	{{ form.csrf_token }}
-		  	<button class="ui primary button" type="submit">Submit</button>
-		</form>
-	</div>
+<div class="ui form-donation center raised very padded text container segment">
+	<form class="ui form" action="/donate" method="post">
+		<h4 class="ui dividing header">Donate</h4> {{ m.render_field(form.date) }} {{ m.render_field(form.location) }} {{ m.render_field(form.amount) }} {{ form.csrf_token }}
+		<button class="ui primary button" type="submit">Submit</button>
+	</form>
+</div>
 
 {% endblock %}

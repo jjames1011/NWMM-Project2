@@ -31,13 +31,14 @@ def contact():
 @app.route('/donate', methods=['GET','POST'])
 def donate():
     form = donation_forms.Donate()
-
+    print('hello')
     if form.validate_on_submit():
+        print('hey')
         # Create a donation
         donation = models.Donation(
             user_email=form.user_email.data,
             location=form.location.data,
-            # date=form.date,
+            date=form.date,
             amount=form.amount.data,
         )
         # Insert the donation in the database

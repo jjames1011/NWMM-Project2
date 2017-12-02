@@ -41,8 +41,8 @@ class User(db.Model, UserMixin):
 class Donation(db.Model):
 
     __tablename__ = 'donations'
-
-    user_email = db.Column(db.String, db.ForeignKey('users.email'), primary_key=True)
+    id = db.Column(db.Integer, primary_key='True')
+    user_email = db.Column(db.String, db.ForeignKey('users.email'))
     amount = db.Column(db.Integer)
     date = db.Column(DateTime, default=datetime.datetime.utcnow)
     location = db.Column(db.String)
