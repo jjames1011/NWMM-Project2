@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
 
     first_name = db.Column(db.String)
     last_name = db.Column(db.String)
+    phone = db.Column(db.String)
     email = db.Column(db.String, primary_key=True)
     confirmation = db.Column(db.Boolean)
     _password = db.Column(db.String)
@@ -34,3 +35,10 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.email
 
+class Donation(db.Model):
+
+    __tablename__ = 'donations'
+
+    user_email = db.Column(db.String, db.ForeignKey('users.email'), primary_key=True)
+    amount = db.Column(db.Integer)
+    location = db.Column(db.String)
