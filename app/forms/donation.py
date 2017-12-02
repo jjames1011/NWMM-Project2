@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import TextField
+from wtforms import TextField, HiddenField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
 from app.models import Donation
@@ -37,3 +37,5 @@ class Donate(Form):
                       description='Date')
     amount= TextField(validators=[Required()],
                       description='Amount')
+    user_email= HiddenField(validators=[Required()],
+                      description='UserEmail')
