@@ -1,13 +1,16 @@
 {% extends "layout.html" %} {% block head %} {{ super() }} {% endblock %} {% block content %}
 
 <h1 class="ui header">Hi {{ current_user.full_name }}!</h1>
+
+
+
 <table class='ui table'>
+
   <thead>
     <tr>
-      <td>
-        <div class='ui ribbon label'>Donations</div>
-      </td>
-      <th>Date</th>
+
+      <th>
+        <div class='ui ribbon label'>Donations</div>Date</th>
       <th>Location</th>
       <th>Amount(oz)</th>
     </tr>
