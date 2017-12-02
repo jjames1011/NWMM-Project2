@@ -44,7 +44,7 @@ class Donation(db.Model):
     id = db.Column(db.Integer, primary_key='True')
     user_email = db.Column(db.String, db.ForeignKey('users.email'))
     amount = db.Column(db.Integer)
-    date = db.Column(DateTime, default=datetime.datetime.utcnow)
+    date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     location = db.Column(db.String)
 
     def __init__(self,user_email,amount,date,location):
