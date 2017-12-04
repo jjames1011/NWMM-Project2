@@ -15,13 +15,13 @@
       <th>Amount(oz)</th>
     </tr>
   </thead>
+  {% for donation in donations %}
   <tr>
-    {% for donation in donations %}
     <td>{{donation.date}}</td>
     <td>{{donation.location}}</td>
     <td>{{donation.amount}}</td>
-    {% endfor %}
   </tr>
+  {% endfor %}
 </table>
 
 {% endblock %}
