@@ -98,7 +98,10 @@ def signout():
 @userbp.route('/account')
 @login_required
 def account():
-    return render_template('user/account.html', title='Account')
+    #TODO: Get the current logged in user and query the db for only the entried by said user
+
+    donations = models.Donation.query.all()
+    return render_template('user/account.html', title='Account', donations=donations)
 
 
 @userbp.route('/forgot', methods=['GET', 'POST'])

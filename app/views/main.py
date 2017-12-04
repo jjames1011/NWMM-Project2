@@ -29,6 +29,7 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 @app.route('/donate', methods=['GET','POST'])
+#TODO: add a @login_required decorator and get the users email by accessing the current user
 def donate():
     form = donation_forms.Donate()
     if request.method == 'POST':

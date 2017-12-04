@@ -16,21 +16,11 @@
     </tr>
   </thead>
   <tr>
-
-    <td>1/2/2017</td>
-    <td>SE Portland</td>
-    <td>10</td>
-  </tr>
-  <tr>
-
-    <td>1/2/2017</td>
-    <td>SE Portland</td>
-    <td>10</td>
-  </tr>
-  <tr>
-    <td>1/2/2017</td>
-    <td>SE Portland</td>
-    <td>10</td>
+    {% for donation in donations %}
+    <td>{{donation.date}}</td>
+    <td>{{donation.location}}</td>
+    <td>{{donation.amount}}</td>
+    {% endfor %}
   </tr>
 </table>
 
