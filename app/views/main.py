@@ -1,4 +1,5 @@
 from flask import render_template, jsonify, redirect, request
+from flask.ext.login import login_user, logout_user, login_required
 from app import app
 from app.forms import donation as donation_forms
 from app import app, models, db
@@ -7,8 +8,9 @@ import random
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    return redirect('/user/signup')
+    return redirect('/donate')
 
 
 @app.route('/map')
@@ -29,6 +31,7 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 @app.route('/donate', methods=['GET','POST'])
+@login_required
 #TODO: add a @login_required decorator and get the users email by accessing the current user
 def donate():
     form = donation_forms.Donate()
@@ -43,6 +46,6 @@ def donate():
         # Insert the donation in the database
         db.session.add(donation)
         db.session.commit()
-        return render_template('/user/account.html', title='Account')
+        return redirect('/user/account')
 
     return render_template('donation/donate.html', form=form, title='Donate')
