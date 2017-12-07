@@ -1,9 +1,6 @@
 {% extends "layout.html" %} {% block head %} {{ super() }} {% endblock %} {% block content %}
 
-<h1 class="ui header">Hi {{ current_user.full_name }}!</h1>
-
-
-
+<h1 class="ui header">Hi {{ current_user.full_name }}!</h1> {% if donations %}
 <table class='ui table'>
 
   <thead>
@@ -23,5 +20,5 @@
   </tr>
   {% endfor %}
 </table>
-
-{% endblock %}
+{% else%}
+<h2>You haven't made any donations yet. Click <a href='/donate'>here</a> to log a donation!</h2> {% endif %} {% endblock %}
